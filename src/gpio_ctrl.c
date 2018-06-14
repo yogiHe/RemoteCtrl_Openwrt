@@ -12,7 +12,7 @@
 
 #include <sys/mman.h>
 
-//
+//low speed mode
 
 int gpio_set_direction(int gpio_num, char io_mode)
 {
