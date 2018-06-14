@@ -11,3 +11,7 @@ static inline void red_led_on()
 {
         gpio_set_value(GPIO_RED_LED, 1);
 }
+static inline void red_led_off()
+{
+
+}
