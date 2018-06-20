@@ -1,0 +1,25 @@
+03:53:01 **** Incremental Build of configuration Debug for project RemoteCtrl_Openwrt ****
+make all 
+Building file: ../src/RemoteControlOpenwrt.c
+Invoking: Cross GCC Compiler
+mipsel-openwrt-linux-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/RemoteControlOpenwrt.d" -MT"src/RemoteControlOpenwrt.o" -o "src/RemoteControlOpenwrt.o" "../src/RemoteControlOpenwrt.c"
+Finished building: ../src/RemoteControlOpenwrt.c
+ 
+Building file: ../src/gpio_ctrl.c
+Invoking: Cross GCC Compiler
+mipsel-openwrt-linux-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/gpio_ctrl.d" -MT"src/gpio_ctrl.o" -o "src/gpio_ctrl.o" "../src/gpio_ctrl.c"
+../src/gpio_ctrl.c: In function 'gpiosetup':
+../src/gpio_ctrl.c:50:5: warning: type of 'viod' defaults to 'int' [-Wimplicit-int]
+ int gpiosetup(viod)
+     ^~~~~~~~~
+Finished building: ../src/gpio_ctrl.c
+ 
+Building file: ../src/led_ctrl.c
+Invoking: Cross GCC Compiler
+mipsel-openwrt-linux-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/led_ctrl.d" -MT"src/led_ctrl.o" -o "src/led_ctrl.o" "../src/led_ctrl.c"
+../src/led_ctrl.c:9:10: fatal error: unistd: No such file or directory
+src/subdir.mk:24: recipe for target 'src/led_ctrl.o' failed
+ #include <unistd>
+          ^~~~~~~~
+compilation terminated.
+make: *** [src/led_ctrl.o] Error 1
