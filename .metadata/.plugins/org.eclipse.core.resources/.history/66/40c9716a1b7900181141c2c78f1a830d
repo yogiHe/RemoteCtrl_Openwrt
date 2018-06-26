@@ -95,7 +95,7 @@ void ledCtrl_entry(void *argment)
 {
 
 
-	red_led_flash(10);
+
 }
 int led_ctrl_init(void)
 {

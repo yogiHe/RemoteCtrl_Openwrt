@@ -13,9 +13,6 @@
 					<entry kind="includePath" name="/home/yogi/myfile/openwrt/openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.3.0_musl/lib/gcc/mipsel-openwrt-linux-musl/7.3.0/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="/usr/include">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="LANGUAGE_C" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -1333,9 +1330,6 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="includePath" name="/home/yogi/myfile/openwrt/openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.3.0_musl/lib/gcc/mipsel-openwrt-linux-musl/7.3.0/include">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="includePath" name="/usr/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="MIPSEL" value="1">

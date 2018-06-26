@@ -16,7 +16,6 @@ pthread_mutex_t event_lock;
 
 int main(void) {
 	pthread_mutex_init(&event_lock, NULL);
-	led_ctrl_init();
 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
 	pthread_mutex_destroy(&event_lock);
 	return EXIT_SUCCESS;

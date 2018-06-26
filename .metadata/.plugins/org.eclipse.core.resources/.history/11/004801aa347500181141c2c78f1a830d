@@ -7,13 +7,11 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include <pthread.h>
 
 #define GPIO_RED_LED 12
 #define GPIO_GREEN_LED 12
 #define GPIO_BLUE_LED 12
 
-extern void gpio_set_value(int gpio_num,int gpio_value);
 
 static inline void red_led_on()
 {
@@ -84,29 +82,7 @@ static void green_blue_flash(int freq)
     }
 }
 
-static void led_init()
-{
-    gpio_set_direction(GPIO_RED_LED, 'o');
-    gpio_set_direction(GPIO_GREEN_LED, 'o');
-    gpio_set_direction(GPIO_BLUE_LED, 'o');
-}
 
-void ledCtrl_entry(void *argment)
-{
-
-
-	red_led_flash(10);
-}
-int led_ctrl_init(void)
-{
-	pthread_t ledCtrlThread;
-	led_init();
-	if(0 != pthread_create(&ledCtrlThread, NULL, ledCtrl_entry, NULL)){
-		printf("Failed to creat ledCtrl_entry\r\n");
-		return -1;
-	}
-	return 0;
-}
 
 
 

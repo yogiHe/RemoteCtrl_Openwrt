@@ -1,28 +1,35 @@
-03:53:01 **** Incremental Build of configuration Debug for project RemoteCtrl_Openwrt ****
+01:32:47 **** Incremental Build of configuration Debug for project RemoteCtrl_Openwrt ****
 make all 
-Building file: ../src/RemoteControlOpenwrt.c
-Invoking: Cross GCC Compiler
-mipsel-openwrt-linux-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/RemoteControlOpenwrt.d" -MT"src/RemoteControlOpenwrt.o" -o "src/RemoteControlOpenwrt.o" "../src/RemoteControlOpenwrt.c"
-Finished building: ../src/RemoteControlOpenwrt.c
- 
-Building file: ../src/gpio_ctrl.c
-Invoking: Cross GCC Compiler
-mipsel-openwrt-linux-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/gpio_ctrl.d" -MT"src/gpio_ctrl.o" -o "src/gpio_ctrl.o" "../src/gpio_ctrl.c"
-../src/gpio_ctrl.c: In function 'gpiosetup':
-../src/gpio_ctrl.c:50:5: warning: type of 'viod' defaults to 'int' [-Wimplicit-int]
- int gpiosetup(viod)
-     ^~~~~~~~~
-Finished building: ../src/gpio_ctrl.c
- 
 Building file: ../src/led_ctrl.c
 Invoking: Cross GCC Compiler
 mipsel-openwrt-linux-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/led_ctrl.d" -MT"src/led_ctrl.o" -o "src/led_ctrl.o" "../src/led_ctrl.c"
-../src/led_ctrl.c:9:10: fatal error: unistd: No such file or directory
-src/subdir.mk:24: recipe for target 'src/led_ctrl.o' failed
- #include <unistd>
-          ^~~~~~~~
-compilation terminated.
-make: *** [src/led_ctrl.o] Error 1
+../src/led_ctrl.c: In function 'led_init':
+../src/led_ctrl.c:89:5: warning: implicit declaration of function 'gpio_set_direction'; did you mean 'gpio_set_value'? [-Wimplicit-function-declaration]
+     gpio_set_direction(GPIO_RED_LED, 'o');
+     ^~~~~~~~~~~~~~~~~~
+     gpio_set_value
+../src/led_ctrl.c: In function 'led_ctrl_init':
+../src/led_ctrl.c:104:47: warning: passing argument 3 of 'pthread_create' from incompatible pointer type [-Wincompatible-pointer-types]
+  if(0 != pthread_create(&ledCtrlThread, NULL, ledCtrl_entry, NULL)){
+                                               ^~~~~~~~~~~~~
+In file included from ../src/led_ctrl.c:10:0:
+/home/yogi/myfile/openwrt/openwrt/staging_dir/toolchain-mipsel_24kc_gcc-7.3.0_musl/include/pthread.h:77:5: note: expected 'void * (*)(void *)' but argument is of type 'void (*)(void *)'
+ int pthread_create(pthread_t *__restrict, const pthread_attr_t *__restrict, void *(*)(void *), void *__restrict);
+     ^~~~~~~~~~~~~~
+At top level:
+../src/led_ctrl.c:74:13: warning: 'green_blue_flash' defined but not used [-Wunused-function]
+ static void green_blue_flash(int freq)
+             ^~~~~~~~~~~~~~~~
+../src/led_ctrl.c:51:13: warning: 'green_led_flash' defined but not used [-Wunused-function]
+ static void green_led_flash(int freq)
+             ^~~~~~~~~~~~~~~
+Finished building: ../src/led_ctrl.c
+ 
+Building target: RemoteCtrl_Openwrt
+Invoking: Cross GCC Linker
+mipsel-openwrt-linux-gcc  -o "RemoteCtrl_Openwrt"  ./src/RemoteControlOpenwrt.o ./src/gpio_ctrl.o ./src/led_ctrl.o   
+Finished building target: RemoteCtrl_Openwrt
+ 
 
-03:53:02 Build Finished (took 702ms)
+01:32:47 Build Finished (took 408ms)
 
